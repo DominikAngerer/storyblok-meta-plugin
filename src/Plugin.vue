@@ -66,9 +66,9 @@ export default {
   events: {
   'plugin:created': function() {
       if(this.$store && this.$store.model && this.$store.model.story){
-        this.title = this.title ? this.title : this.$store.model.story.name
-        this.og_title = this.og_title ? this.og_title : this.$store.model.story.name
-        this.twitter_title = this.twitter_title ? this.twitter_title : this.$store.model.story.name
+        this.model.title = this.model.title ? this.model.title : this.$store.model.story.name;
+        this.model.og_title = this.model.og_title ? this.model.og_title : this.$store.model.story.name;
+        this.model.twitter_title = this.model.twitter_title ? this.model.twitter_title : this.$store.model.story.name;
       }
       console.log('plugin:created')
     },
