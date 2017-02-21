@@ -10,21 +10,25 @@ exports.default = {
     initWith: function initWith() {
       return {
         plugin: 'meta',
-        title: 'Your title',
-        description: 'Your description',
-        og_title: 'Your Open Graph Title',
-        og_description: 'Your description',
+        title: '',
+        description: '',
+        og_title: '',
+        og_description: '',
         og_image: '',
         og_site_name: 'Your site name (e.g Storyblok)',
-        twitter_title: 'Your title',
-        twitter_site: '@your_site',
-        twitter_description: 'Your description',
+        twitter_title: '',
+        twitter_description: '',
         twitter_image: ''
       };
     }
   },
   events: {
     'plugin:created': function pluginCreated() {
+      if (this.$store && this.$store.model && this.$store.model.story) {
+        this.title = this.title ? this.title : this.$store.model.story.name;
+        this.og_title = this.og_title ? this.og_title : this.$store.model.story.name;
+        this.twitter_title = this.twitter_title ? this.twitter_title : this.$store.model.story.name;
+      }
       console.log('plugin:created');
     },
     'plugin:destroyed': function pluginDestroyed() {
