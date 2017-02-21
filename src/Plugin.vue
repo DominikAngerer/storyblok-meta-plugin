@@ -50,7 +50,7 @@
   </div>
   <div class="uk-margin-small-bottom">
       <span class="form__topic">Twitter Image</span> 
-      <fileupload :model.sync="model.og_image"></fileupload>
+      <fileupload :model.sync="model.twitter_image"></fileupload>
       <span class="uk-text-muted form__hint">An image URL which should represent your object.</span>
   </div>
 </template>
