@@ -50,7 +50,7 @@
   </div>
   <div class="uk-margin-small-bottom">
       <span class="form__topic">Twitter Image</span> 
-      <fileupload></fileupload>
+      <fileupload :model.sync="model.og_image"></fileupload>
       <span class="uk-text-muted form__hint">An image URL which should represent your object.</span>
   </div>
 </template>
@@ -67,8 +67,8 @@ export default {
         og_title: 'Your Open Graph Title',
         og_description: 'Your description',
         og_image: '',
-        og_site_name: 'Your description',
-        twitter_title: 'Yout title',
+        og_site_name: 'Your site name (e.g Storyblok)',
+        twitter_title: 'Your title',
         twitter_site: '@your_site',
         twitter_description: 'Your description',
         twitter_image: ''
