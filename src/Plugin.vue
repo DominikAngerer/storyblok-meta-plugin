@@ -28,17 +28,7 @@
   </div>
   <div class="uk-margin-small-bottom">
       <span class="form__topic">OG Image</span> 
-      <div class="uk-placeholder uk-margin-bottom-remove uk-margin-top-remove">
-        <div class="uk-flex">
-          <a class="uk-margin-right uk-form-file uk-button uk-button-small uk-button-primary" :class="{'uk-disabled': loading}">
-            <span class="util__nobreak" v-if="loading"><i class="uk-icon-spin uk-icon-refresh"></i></span>
-            <span class="util__nobreak" v-else>Browse</span>
-            <input accept="image/x-png, image/gif, image/jpeg" v-on:change="upload('og_image', $event)" class="upload-select" type="file">
-          </a>
-          <input v-model="model.og_image" type="text" class="uk-form-small uk-flex-item-auto">
-          <a class="uk-margin-left" v-if="model.og_image" href="{{ model.og_image }}" target="_blank"><i class="uk-icon-search"></i></a>
-        </div>
-      </div>
+      <fileupload :model.sync="model.og_image"></fileupload>
       <span class="uk-text-muted form__hint">An image URL which should represent your object.</span>
   </div>
   <hr>
@@ -60,17 +50,7 @@
   </div>
   <div class="uk-margin-small-bottom">
       <span class="form__topic">Twitter Image</span> 
-      <div class="uk-placeholder uk-margin-bottom-remove uk-margin-top-remove">
-        <div class="uk-flex">
-          <a class="uk-margin-right uk-form-file uk-button uk-button-small uk-button-primary" :class="{'uk-disabled': loading}">
-            <span class="util__nobreak" v-if="loading"><i class="uk-icon-spin uk-icon-refresh"></i></span>
-            <span class="util__nobreak" v-else>Browse</span>
-            <input accept="image/x-png, image/gif, image/jpeg" v-on:change="upload(key, $event)" class="upload-select" type="file">
-          </a>
-          <input v-model="model.twitter_image" type="text" class="uk-form-small uk-flex-item-auto">
-          <a class="uk-margin-left" v-if="model.twitter_image" href="{{ model.twitter_image }}" target="_blank"><i class="uk-icon-search"></i></a>
-        </div>
-      </div>
+      <fileupload></fileupload>
       <span class="uk-text-muted form__hint">An image URL which should represent your object.</span>
   </div>
 </template>
@@ -92,13 +72,6 @@ export default {
         twitter_site: '@your_site',
         twitter_description: 'Your description',
         twitter_image: ''
-      }
-    },
-    upload: function(key, event) {
-      let file = event.target.files[0]
-
-      if (!file) {
-        return
       }
     }
   },
